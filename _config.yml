@@ -1,6 +1,6 @@
-title: Minimal theme
+title: 路口师傅
 logo: /assets/img/logo.png
-description: Minimal is a theme for GitHub Pages.
-show_downloads: true
-google_analytics:
+description: today is tomorrow.
+show_downloads: false
+google_analytics: true
 theme: jekyll-theme-minimal
