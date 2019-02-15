@@ -9,18 +9,23 @@ layout: default
   {% if post.external_url %}
     <a href="{{ post.url }}">{{ post.title }}</a><abbr>{{ post.date | date_to_string }}</abbr>
   {% else %}
-    <a href="{{ post.url }}">{{ post.title }}</a><abbr>{{ post.date | date_to_string }}</abbr>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    {{ post.excerpt }}
+    <abbr>{{ post.date | date_to_string }}</abbr>
   {% endif %}
   </li>
 {% endfor %}
 </ul>
 
 ---
-
-<h2 id="top-title">分类</h2>
-{% if site.categories %}
-  <small>tags: <em>{{ site.categories.values | join: "</em> - <em>" }}</em></small>
-{% endif %}
+{% for category in site.categories %}
+  <h3>{{ category[0] }}</h3>
+  <ul>
+    {% for post in category[1] %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
 ---
 {% for post in site.posts %}
   <em>{{ post | join: "</em> - <em>" }}</em>
