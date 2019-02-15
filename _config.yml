@@ -1,6 +1,9 @@
 title: 路口师傅
 logo: /assets/img/logo.png
-description: today is tomorrow.
+description: "today is tomorrow."
 show_downloads: false
 google_analytics: ljyes@outlook.com
 theme: jekyll-theme-minimal
+lang: CN
+#github:{build_revision:~ ,is_project_page,repository_url,repository_nwo,is_user_page,owner_url}
+#relative_url:

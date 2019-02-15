@@ -2,40 +2,37 @@
 
 [![Build Status](https://travis-ci.org/pages-themes/minimal.svg?branch=master)](https://travis-ci.org/pages-themes/minimal) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-minimal.svg)](https://badge.fury.io/rb/jekyll-theme-minimal)
 
-*Minimal is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/minimal), or even [use it today](#usage).*
+*Minimal is a Jekyll theme for GitHub Pages. 你可以 [瞅瞅它长啥样](http://pages-themes.github.io/minimal), 或 [立即使用](#usage).*
 
 ![Thumbnail of minimal](thumbnail.png)
 
-## Usage
+## 用法
 
-To use the Minimal theme:
+使用 Minimal 主题:
 
-1. Add the following to your site's `_config.yml`:
+1. 添加下面的代码到文件 `_config.yml`中，用来设置主题:
 
     ```yml
     theme: jekyll-theme-minimal
     ```
-
-2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
+2. Optionally, if you'd like to preview your site on your computer, add the following to your site's Gemfile:
 
     ```ruby
     gem "github-pages", group: :jekyll_plugins
     ```
+    
+## 自定义
 
+### 配置变量
 
-
-## Customizing
-
-### Configuration variables
-
-Minimal will respect the following variables, if set in your site's `_config.yml`:
+把下面代码添加到你的网站的 `_config.yml`文件中，来设置标题和描述，也可自定义:
 
 ```yml
-title: [The title of your site]
-description: [A short description of your site's purpose]
+title: "The title of your site"
+description: "A short description of your site's purpose"
 ```
 
-Additionally, you may choose to set the following optional variables:
+此外你也可做其它的设定(logo路径，下载按钮和谷歌分析)，还可自定义变量 "配置信息" 在模板中使用:
 
 ```yml
 logo: [Location of the logo]
@@ -43,51 +40,119 @@ show_downloads: ["true" or "false" to indicate whether to provide a download URL
 google_analytics: [Your Google Analytics tracking ID]
 ```
 
-### Stylesheet
+### 样式
 
-If you'd like to add your own custom styles:
+如果喜欢的话，可以自定义样式:
 
-1. Create a file called `/assets/css/style.scss` in your site
-2. Add the following content to the top of the file, exactly as shown:
+1. Create a file called `/assets/css/style.scss` in your site（在指定文件夹下创建文件）
+2. Add the following content to the top of the file, exactly as shown:（在文件style.scss中添加以下内容）
     ```scss
     ---
     ---
 
     @import "{{ site.theme }}";
     ```
-3. Add any custom CSS (or Sass, including imports) you'd like immediately after the `@import` line
+3. 自定义内容追加在 @import "{{ site.theme }}"; 后面
 
-### Layouts
+### Layouts布局
 
-If you'd like to change the theme's HTML layout:
+如果喜欢的话，可以改变主题提供的HTML布局:
 
-1. [Copy the original template](https://github.com/pages-themes/minimal/blob/master/_layouts/default.html) from the theme's repository<br />(*Pro-tip: click "raw" to make copying easier*)
-2. Create a file called `/_layouts/default.html` in your site
-3. Paste the default layout content copied in the first step
-4. Customize the layout as you'd like
+```html
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-## Roadmap
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+        
+        {% if site.logo %}
+          <img src="{{site.logo | relative_url}}" alt="Logo" />
+        {% endif %}
 
-See the [open issues](https://github.com/pages-themes/minimal/issues) for a list of proposed features (and known issues).
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
 
-## Project philosophy
+        {% if site.github.is_project_page %}
+        <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
+        {% endif %}
 
-The Minimal theme is intended to make it quick and easy for GitHub Pages users to create their first (or 100th) website. The theme should meet the vast majority of users' needs out of the box, erring on the side of simplicity rather than flexibility, and provide users the opportunity to opt-in to additional complexity if they have specific needs or wish to further customize their experience (such as adding custom CSS or modifying the default layout). It should also look great, but that goes without saying.
+        {% if site.github.is_user_page %}
+        <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
+        {% endif %}
 
-## Contributing
+        {% if site.show_downloads %}
+        <ul class="downloads">
+          <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
+          <li><a href="{{ site.github.tar_url }}">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
+        </ul>
+        {% endif %}
+      </header>
+      <section>
 
-Interested in contributing to Minimal? We'd love your help. Minimal is an open source project, built one contribution at a time by users like you. See [the CONTRIBUTING file](docs/CONTRIBUTING.md) for instructions on how to contribute.
+      {{ content }}
 
-### Previewing the theme locally
+      </section>
+      <footer>
+        {% if site.github.is_project_page %}
+        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+        {% endif %}
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    {% if site.google_analytics %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', '{{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+    </script>
+    {% endif %}
+  </body>
+</html>
+```
 
-If you'd like to preview the theme locally (for example, in the process of proposing a change):
+1. [从该链接复制模板内容（见上代码）](https://github.com/pages-themes/minimal/blob/master/_layouts/default.html) 
+2. 还是在指定文件夹下创建文件`/_layouts/default.html`
+3. 粘贴上面的模板内容
+4. 自己看着修改
 
-1. Clone down the theme's repository (`git clone https://github.com/pages-themes/minimal`)
-2. `cd` into the theme's directory
-3. Run `script/bootstrap` to install the necessary dependencies
-4. Run `bundle exec jekyll serve` to start the preview server
-5. Visit [`localhost:4000`](http://localhost:4000) in your browser to preview the theme
+## 路线图
 
-### Running tests
+有关建议功能[已知问题](https://github.com/pages-themes/minimal/issues)的列表，请参阅未解决的问题。
 
-The theme contains a minimal test suite, to ensure a site with the theme would build successfully. To run the tests, simply run `script/cibuild`. You'll need to run `script/bootstrap` one before the test script will work.
+## 项目理念
+
+Minimal主题旨在让GitHub Pages用户快速轻松地创建他们的第一个（或第100个）网站。该主题应该满足绝大多数用户的开箱即用需求，在简单性而不是灵活性方面犯错，并且如果用户有特定需求或希望进一步定制他们的体验，则为用户提供选择加入其他复杂性的机会。 （例如添加自定义CSS或修改默认布局）。它应该看起来很棒，但不言而喻。
+
+## 特约
+
+有兴趣为Minimal做贡献吗？我们热爱你的帮助。Minimal是一个开源项目，由像您这样的用户一次构建一个贡献。有关如何贡献的说明，请参阅[CONTRIBUTING](https://github.com/ljyeso/ljyeso.github.io/blob/master/docs/CONTRIBUTING.md)文件。
+
+### 在本地预览主题
+
+如果您想在本地预览主题（例如，在提议更改的过程中）：
+
+1. 克隆主题的存储库（git clone https://github.com/pages-themes/minimal）
+2. cd 进入主题的目录
+3. 运行script/bootstrap以安装必要的依赖项
+4. 运行bundle exec jekyll serve以启动预览服务器
+5. 访问localhost:4000您的浏览器以预览主题
+
+### 运行测试
+
+该主题包含一个最小的测试套件，以确保主题成功构建的网站。要运行测试，只需运行即可script/cibuild。script/bootstrap在测试脚本运行之前，您需要运行一个。
