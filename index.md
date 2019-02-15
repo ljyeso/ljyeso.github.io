@@ -19,5 +19,5 @@ layout: default
 
 <h2 id="top-title">分类</h2>
 {% if site.categories %}
-  <small>tags: <em>{{ site.categories | join: "</em> - <em>" }}</em></small>
+  <small>tags: <em>{{ site.categories.keys | join: "</em> - <em>" }}</em></small>
 {% endif %}
