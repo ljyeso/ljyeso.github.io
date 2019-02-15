@@ -6,15 +6,11 @@ layout: default
 <ul>
 {% for post in site.posts %}
   <li class="post-{{ post.category }} post-{{ post.categories }}">
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    {{ post.excerpt }}
-    <abbr>{{ post.date | date_to_string }}</abbr>
-  {% endif %}
+    <a href="{{ post.url }}">{{ post.title }}</a><abbr>{{ post.date | date_to_string }}</abbr>
   </li>
 {% endfor %}
 </ul>
 
----
 {% for category in site.categories %}
   <h3>{{ category[0] }}</h3>
   <ul>
