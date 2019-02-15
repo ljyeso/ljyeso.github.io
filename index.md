@@ -15,7 +15,7 @@ layout: default
 {% endfor %}
 </ul>
 
-<h2 id="top-title">分类</h2>
+<h2>分类</h2>
 <ul>
 {% for category in site.categories %}
     <li class="post-{{ post.category }}">
