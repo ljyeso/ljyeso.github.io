@@ -18,7 +18,7 @@ layout: default
 <h2>分类</h2>
 <ul>
 {% for category in site.categories %}
-    <li class="post-{{ post.category }}">
+    <li >
       <a href="">{{ category }}</a>
     </li>
 {% endfor %}
