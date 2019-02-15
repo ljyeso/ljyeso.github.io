@@ -6,7 +6,7 @@
 /*标签云*/
 .cloud { width: 100%; clear: both; overflow: hidden }
 .cloud h3 { font-size: 14px; color: #666; border-bottom: 1px solid #E6E6E6; padding: 5px 0; margin-bottom: 10px }
-.cloud ul { display: flex; flex-flow: row wrap; justify-content:space-between; padding-left: 0;}
+.cloud ul { display: flex; flex-flow: row wrap; justify-content:flex-start; padding-left: 0;}
 .cloud ul li { font-size: 13px; display: inline-block; padding: 2px 4px; margin-bottom: 5px; border-radius: 6px; background: #999; transition: all 0.5s; }
 .cloud ul li a { color: #FFF }
 .cloud ul li:nth-child(8n-7) { background: #8A9B0F }
@@ -33,5 +33,8 @@
 @media print, screen and (max-width: 960px) {
   .link {
     display: none;
+  }
+  .cloud ul{
+    justify-content:space-between;
   }
 }
