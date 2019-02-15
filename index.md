@@ -1,6 +1,5 @@
 ---
 layout: default
-title: test---liu
 ---
 
 <h2>archive</h2>
@@ -15,5 +14,3 @@ title: test---liu
   </li>
 {% endfor %}
 </ul>
-
-{{ site.time }}
