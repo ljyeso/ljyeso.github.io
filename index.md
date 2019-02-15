@@ -5,10 +5,7 @@ layout: default
 <h2 id="top-title">文章列表</h2>
 <ul>
 {% for post in site.posts %}
-  <li class="post-{{ post.category }}">
-  {% if post.external_url %}
-    <a href="{{ post.url }}">{{ post.title }}</a><abbr>{{ post.date | date_to_string }}</abbr>
-  {% else %}
+  <li class="post-{{ post.category }} post-{{ post.categories }}">
     <a href="{{ post.url }}">{{ post.title }}</a>
     {{ post.excerpt }}
     <abbr>{{ post.date | date_to_string }}</abbr>
@@ -26,7 +23,5 @@ layout: default
     {% endfor %}
   </ul>
 {% endfor %}
----
-{% for post in site.posts %}
-  <em>{{ post | join: "</em> - <em>" }}</em>
-{% endfor %}
+
+<!-- post >> content - excerpt - output - previous - id - url - relative_path - next - path - collection - draft - categories - layout - title - tags - date - slug - ext -->

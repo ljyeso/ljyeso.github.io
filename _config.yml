@@ -6,4 +6,4 @@ theme: jekyll-theme-minimal
 lang: CN
 url: https://ljyeso.github.io
 author: ljyes@outlook.com
-#permalink: /////
+permalink: /:categories/:year/:month/:day/:title:output_ext
