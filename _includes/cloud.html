@@ -1,8 +1,8 @@
 <div class="cloud">
     <h3>标签云</h3>
     <ul>
-        {% for category in site.categories %}
-            <li><a href="{{ post.url }}">{{ category[0] }}</a></li>
+        {% for tag in site.tags %}
+            <li><a href="">{{ tag }}</a></li>
         {% endfor %}
     </ul>
 </div>

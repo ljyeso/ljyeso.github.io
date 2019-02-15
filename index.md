@@ -11,7 +11,7 @@ layout: default
 {% endfor %}
 </ul> -->
 
-<h2 id="top-title">帖子类别</h2>
+<h2 id="top-title">帖子</h2>
 {% for category in site.categories %}
   <h3>{{ category[0] }}</h3>
   <ul>
