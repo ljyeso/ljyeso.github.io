@@ -20,11 +20,6 @@ layout: default
 <h2 id="top-title">分类</h2>
 <ul>
 {% for category in site.categories %}
-  {% for post in site.categories[category] %}
-    <li class="">
-      <a href="{{ post.url }}">{{ post.title }}</a><abbr>{{ post.date | date_to_string }}</abbr>
-    </li>
-    
-  {% endfor %}
+  {{ category }}
 {% endfor %}
 </ul>
