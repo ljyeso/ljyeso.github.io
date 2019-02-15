@@ -3,13 +3,17 @@ layout: default
 title: test---liu
 ---
 
-<div class="home">
-	<h1>Blog Posts</h1>
-	<ul class="posts">
-		{% for post in site.posts %}
-		<li><span>{{ post.date | date_to_string }}</span> <span class="seperator">~</span> <a href="{{ post.url }}">{{ post.title }}</a></li>
-		{% endfor %}
-	</ul>
-</div>
+<h2>archive</h2>
+<ul id="archive">
+{% for post in site.posts %}
+  <li class="post-{{ post.category }}">
+  {% if post.external_url == nil %}
+    <a href="{{ post.url }}">{{ post.title }}</a><abbr>{{ post.date | date_to_string }}</abbr>
+  {% else %}
+    <a href="{{ post.external_url }}">{{ post.title }}</a><abbr>{{ post.date | date_to_string }}</abbr>
+  {% endif %}
+  </li>
+{% endfor %}
+</ul>
 
 {{ site.time }}
