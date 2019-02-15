@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<h2>archive</h2>
-<ul id="archive">
+<h2 id="top-title">文章列表</h2>
+<ul>
 {% for post in site.posts %}
   <li class="post-{{ post.category }}">
   {% if post.external_url == nil %}
