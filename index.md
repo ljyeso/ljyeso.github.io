@@ -9,10 +9,8 @@ layout: default
   {% if post.external_url %}
     <a href="{{ post.url }}">{{ post.title }}</a><abbr>{{ post.date | date_to_string }}</abbr>
   {% else %}
-    <a href="{{ post.external_url }}">{{ post.title }}</a><abbr>{{ post.date | date_to_string }}</abbr>
+    <a href="{{ post.external_url }}">{{ post.external_url }}{{ post.title }}{{ post.url }}</a><abbr>{{ post.date | date_to_string }}</abbr>
   {% endif %}
   </li>
 {% endfor %}
 </ul>
-
--------------------------
