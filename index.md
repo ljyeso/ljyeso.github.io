@@ -18,8 +18,6 @@ layout: default
 ---
 
 <h2 id="top-title">分类</h2>
-<ul>
-{% for category in site.categories %}
-  {{ category }}
-{% endfor %}
-</ul>
+{% if site.categories %}
+  <small>tags: <em>{{ site.categories | join: "</em> - <em>" }}</em></small>
+{% endif %}
