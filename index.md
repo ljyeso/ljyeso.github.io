@@ -15,11 +15,16 @@ layout: default
 {% endfor %}
 </ul>
 
-<h2>分类</h2>
+---
+
+<h2 id="top-title">分类</h2>
 <ul>
 {% for category in site.categories %}
-    <li >
-      <a href="">{{ category }}</a>
+  {% for post in site.categories[category] %}
+    <li class="">
+      <a href="{{ post.url }}">{{ post.title }}</a><abbr>{{ post.date | date_to_string }}</abbr>
     </li>
+    
+  {% endfor %}
 {% endfor %}
 </ul>
