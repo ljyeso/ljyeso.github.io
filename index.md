@@ -16,6 +16,7 @@ layout: default
 </ul>
 
 -------------------------
+
 {% for post in site.pages %}
   <li class="post-{{ post.category }}">
   {% if post.external_url == nil %}
