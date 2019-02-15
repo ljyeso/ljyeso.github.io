@@ -6,6 +6,3 @@ google_analytics: ljyes@outlook.com
 theme: jekyll-theme-minimal
 lang: CN
 url: https://ljyeso.github.io
-baseurl: "" # the subpath of your site, e.g. /blog
-#github:{build_revision:~ ,is_project_page,repository_url,repository_nwo,is_user_page,owner_url}
-#relative_url:
