@@ -15,7 +15,7 @@
     ```yml
     theme: jekyll-theme-minimal
     ```
-2. Optionally, if you'd like to preview your site on your computer, add the following to your site's Gemfile:
+2. __Optionally, if you'd like to preview your site on your computer, add the following to your site's Gemfile:__
 
     ```ruby
     gem "github-pages", group: :jekyll_plugins
@@ -25,7 +25,7 @@
 
 ### 配置变量
 
-把下面代码添加到你的网站的 `_config.yml`文件中，来设置标题和描述，也可自定义:
+把下面代码添加到你的网站的 `_config.yml`文件中，来设置标题和描述:
 
 ```yml
 title: "The title of your site"
@@ -44,15 +44,15 @@ google_analytics: [Your Google Analytics tracking ID]
 
 如果喜欢的话，可以自定义样式:
 
-1. Create a file called `/assets/css/style.scss` in your site（在指定文件夹下创建文件）
-2. Add the following content to the top of the file, exactly as shown:（在文件style.scss中添加以下内容）
+1. 在指定文件`/assets/css/style.scss`夹下创建文件(与`_config.yml`同根目录)
+2. 在文件style.scss中添加以下内容
     ```scss
     ---
     ---
 
     @import "{{ site.theme }}";
     ```
-3. 自定义内容追加在 @import "{{ site.theme }}"; 后面
+3. 自定义css内容追加在 @import "{{ site.theme }}"; 后面
 
 ### Layouts布局
 
@@ -126,7 +126,7 @@ google_analytics: [Your Google Analytics tracking ID]
 </html>
 ```
 
-1. [从该链接复制模板内容（见上代码）](https://github.com/pages-themes/minimal/blob/master/_layouts/default.html) 
+1. [从该链接复制模板内容（即上代码）](https://github.com/pages-themes/minimal/blob/master/_layouts/default.html) 
 2. 还是在指定文件夹下创建文件`/_layouts/default.html`
 3. 粘贴上面的模板内容
 4. 自己看着修改
